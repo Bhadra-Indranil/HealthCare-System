@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Healthcare Management System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar Navigation -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <img
+            src="images/logo.svg"
+            alt="Healthcare Management System Logo"
+            width="40"
+            height="40"
+          />
+          <h2>HMS</h2>
+        </div>
+        <ul class="nav-links">
+          <li class="active" data-page="dashboard">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+          </li>
+          <li data-page="patients">
+            <i class="fas fa-user-injured"></i>
+            <span>Patients</span>
+          </li>
+          <li data-page="analytics">
+            <i class="fas fa-chart-bar"></i>
+            <span>Analytics</span>
+          </li>
+          <li data-page="appointments">
+            <i class="fas fa-calendar-check"></i>
+            <span>Appointments</span>
+          </li>
+          <li data-page="settings">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </li>
+        </ul>
+        <div class="sidebar-footer">
+          <div class="user-info">
+            <img src="images/avatar.png" alt="User" class="avatar" />
+            <div class="user-details">
+              <span class="user-name">Dr. John Doe</span>
+              <span class="user-role">Administrator</span>
+            </div>
+          </div>
+          <button id="logoutBtn" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <header class="top-bar">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search patients, records..." />
+          </div>
+          <div class="top-bar-actions">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </button>
+            <button class="add-patient-btn">
+              <i class="fas fa-plus"></i>
+              New Patient
+            </button>
+          </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="content-area" id="dashboard">
+          <div class="dashboard-header">
+            <h1>Dashboard</h1>
+            <div class="date-filter">
+              <select id="dateRange">
+                <option value="today">Today</option>
+                <option value="week">This Week</option>
+                <option value="month" selected>This Month</option>
+                <option value="year">This Year</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon patients">
+                <i class="fas fa-user-injured"></i>
+              </div>
+              <div class="stat-details">
+                <h3>Total Patients</h3>
+                <p class="stat-number">2,451</p>
+                <p class="stat-change positive">+12.5% from last month</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon appointments">
+                <i class="fas fa-calendar-check"></i>
+              </div>
+              <div class="stat-details">
+                <h3>Appointments</h3>
+                <p class="stat-number">156</p>
+                <p class="stat-change positive">+8.2% from last month</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon revenue">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div class="stat-details">
+                <h3>Revenue</h3>
+                <p class="stat-number">$45,231</p>
+                <p class="stat-change positive">+15.3% from last month</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon tests">
+                <i class="fas fa-vial"></i>
+              </div>
+              <div class="stat-details">
+                <h3>Lab Tests</h3>
+                <p class="stat-number">89</p>
+                <p class="stat-change negative">-2.4% from last month</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Charts Section -->
+          <div class="charts-grid">
+            <div class="chart-card">
+              <h3>Patient Demographics</h3>
+              <canvas id="demographicsChart"></canvas>
+            </div>
+            <div class="chart-card">
+              <h3>Visit Trends</h3>
+              <canvas id="visitTrendsChart"></canvas>
+            </div>
+            <div class="chart-card">
+              <h3>Medical Conditions</h3>
+              <canvas id="conditionsChart"></canvas>
+            </div>
+            <div class="chart-card">
+              <h3>Department Performance</h3>
+              <canvas id="departmentChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="recent-activity">
+            <h3>Recent Activity</h3>
+            <div class="activity-list">
+              <!-- Activity items will be dynamically added here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Other content areas (Patients, Analytics, etc.) will be added dynamically -->
+      </main>
+    </div>
+
+    <!-- Modal Templates -->
+    <div class="modal" id="addPatientModal">
+      <!-- Add Patient form will be added here -->
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/patients.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -57,7 +57,3 @@ JWT_SECRET=<your_jwt_secret_key>
 3.  Access the API endpoints using a tool like Postman, or connect your frontend application to this backend.
 
 4.  User roles and their permissions are handled by the backend. Ensure you register users with appropriate roles (Admin, Doctor, Nurse, Receptionist) to access specific functionalities.
-
-## API Documentation
-
-API documentation should be available at `http://localhost:5000/api-docs` once the server is running (assuming you have integrated Swagger or similar).
